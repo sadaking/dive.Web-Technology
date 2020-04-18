@@ -16,16 +16,12 @@ begin
   end
 
   result1 = connection.exec("SELECT weight, give_for FROM crops WHERE give_for != 'false';")
-  # 取り出した各行を処理する
   result1.each do |record1|
-      # 各行を取り出し、putsでターミナル上に出力する
       puts "ゴーヤの大きさ：#{record1["weight"]}　売った相手：#{record1["give_for"]}"
   end
 
   result2 = connection.exec("SELECT weight, give_for, quality FROM crops WHERE quality = 'false';")
-  # 取り出した各行を処理する
   result2.each do |record2|
-      # 各行を取り出し、putsでターミナル上に出力する
       puts "ゴーヤの大きさ：#{record2["weight"]}　売った相手：#{record2["give_for"] } 品質：#{record2["quality"] }"
   end
 ensure
