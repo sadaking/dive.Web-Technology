@@ -16,9 +16,7 @@ if cgi.include?('goya')
   }
 elsif cgi.include?('goya1')
   cgi.out("type" => "text/html", "charset" => "UTF-8") {
-    # 情報の目印とした"goya"のデータを cgi['goya']と言う記述で取り出し、ローカル変数に代入する
     get = cgi['goya1']
-    # HTMLでレスポンスを返却する
       "<html>
         <body>
           <p>譲渡先が自家消費ではないもののgoyaの情報は下記になります</p>
@@ -28,9 +26,7 @@ elsif cgi.include?('goya1')
   }
 elsif cgi.include?('goya2')
   cgi.out("type" => "text/html", "charset" => "UTF-8") {
-    # 情報の目印とした"goya"のデータを cgi['goya']と言う記述で取り出し、ローカル変数に代入する
     get = cgi['goya2']
-    # HTMLでレスポンスを返却する
       "<html>
         <body>
           <p>品質が悪いもの（false）のgoyaの情報は下記になります</p>
