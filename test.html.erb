@@ -21,17 +21,17 @@
     <% end %>
 
 
-    <% result1 = connection.exec("SELECT weight,give_for FROM crops WHERE give_for != '自家消費'")%>
+    <% result1 = connection.exec("SELECT * FROM crops WHERE give_for != '自家消費'")%>
     <% data1 = [] %>
     <% result1.each do |record1| %>
-      <%  data1 << "ゴーヤの大きさ：#{record1["weight"]}　売った相手：#{record1["give_for"]}" %>
+      <%  data1 << "ゴーヤの長さ：#{record1["length"]}　ゴーヤの重さ：#{record1["weight"]} 品質：#{record1["quality"]}  売った相手：#{record1["give_for"] } 日付：#{record1["date"] }" %>
     <% end %>
 
 
-    <% result2 = connection.exec("SELECT weight,give_for,quality FROM crops WHERE quality = 'false' ")%>
+    <% result2 = connection.exec("SELECT * FROM crops WHERE quality = false ")%>
     <% data2 = [] %>
     <% result2.each do |record2| %>
-      <%  data2 << "ゴーヤの大きさ：#{record2["weight"]}　売った相手：#{record2["give_for"]} 品質：#{record2["quality"]}" %>
+      <%  data2 << "ゴーヤの長さ：#{record2["length"]}　ゴーヤの重さ：#{record2["weight"]}　品質：#{record2["quality"]}　売った相手：#{record2["give_for"] } 日付：#{record2["date"] }" %>
     <% end %>
 
 

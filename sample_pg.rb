@@ -12,17 +12,17 @@ begin
   # 取り出した各行を処理する
   result.each do |record|
       # 各行を取り出し、putsでターミナル上に出力する
-      puts "ゴーヤの大きさ：#{record["weight"]}　売った相手：#{record["give_for"]}"
+      puts "ゴーヤの重さ：#{record["weight"]}　売った相手：#{record["give_for"]}"
   end
 
-  result1 = connection.exec("SELECT weight, give_for FROM crops WHERE give_for != 'false';")
+  result1 = connection.exec("SELECT * FROM crops WHERE give_for != '自家消費';")
   result1.each do |record1|
-      puts "ゴーヤの大きさ：#{record1["weight"]}　売った相手：#{record1["give_for"]}"
+      puts "ゴーヤの長さ：#{record1["length"]}　ゴーヤの重さ：#{record1["weight"]} 品質：#{record1["quality"]}  売った相手：#{record1["give_for"] } 日付：#{record1["date"] }"
   end
 
-  result2 = connection.exec("SELECT weight, give_for, quality FROM crops WHERE quality = 'false';")
+  result2 = connection.exec("SELECT * FROM crops WHERE quality = false;")
   result2.each do |record2|
-      puts "ゴーヤの大きさ：#{record2["weight"]}　売った相手：#{record2["give_for"] } 品質：#{record2["quality"] }"
+      puts "ゴーヤの長さ：#{record2["length"]}　ゴーヤの重さ：#{record2["weight"]}　品質：#{record2["quality"]}　売った相手：#{record2["give_for"] } 日付：#{record2["date"] }"
   end
 ensure
   # 最後に.finishでデータベースへのコネクションを切断する
