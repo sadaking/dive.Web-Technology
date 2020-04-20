@@ -12,12 +12,14 @@
       <input type="text"  name="input" ><br>
       <input type="submit" name="送信" >
     </form>
+    
 
     <% result = connection.exec("SELECT weight, give_for FROM crops;") %>
     <% data = [] %>
     <% result.each do |record| %>
       <%  data << "ゴーヤの大きさ：#{record["weight"]}　売った相手：#{record["give_for"]}" %>
     <% end %>
+
 
     <form action="goya.cgi" method="POST">
        下記のボタンを押すと、ゴーヤの大きさと売った相手の情報ページに飛びます<br><br>
